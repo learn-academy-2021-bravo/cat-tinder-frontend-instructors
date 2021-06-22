@@ -1,6 +1,8 @@
 # Getting set up
 $ git clone
+<br>
 $ yarn
+<br>
 $ yarn test - uses built in testing suite
 
 `$ yarn add -D enzyme react-test-renderer enzyme-adapter-react-16`
@@ -25,7 +27,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import WhateverComponent from '../WhateverComponent'
 
 ### configuration
-`Enzyme.configuration({ adapter: new Adapter()})`
+`Enzyme.configure({ adapter: new Adapter()})`
 
 # Arrange 
 set up a situation, shallow redering a component
