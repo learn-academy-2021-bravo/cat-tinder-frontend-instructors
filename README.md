@@ -17,8 +17,11 @@ at the same level of the items to be tested creat a new folder called
 # Test File Structure
 ### Imports
 import React from 'react'
+<br>
 import Enzyme, { shallow } from 'enzyme'
+<br>
 import Adapter from 'enzyme-adapter-react-16'
+<br>
 import WhateverComponent from '../WhateverComponent'
 
 ### configuration
