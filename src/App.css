@@ -1,3 +1,41 @@
+
 .cat-logo {
   width: 200px;
+}
+
+
+/* ---FOOTER--- */
+
+footer {
+  font-size: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #FFFEF1
+}
+
+ul.nav {
+  justify-content: space-around;
+}
+
+a {
+  color: #FF0080 !important;
+  text-decoration: none !important;
+}
+
+a:hover{
+  cursor: pointer !important;
+  color: #FF0080 !important;
+  text-decoration: underline !important;
+}
+
+
+/* ---NOT FOUND--- */
+.notfound-body {
+  text-align: center;
+  margin: 5rem;
+}
+
+.notfound-cat {
+  width: 400px;
 }
