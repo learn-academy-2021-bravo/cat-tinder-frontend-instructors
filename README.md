@@ -1,4 +1,6 @@
-# Enzyme Notes
+# Cat Tinder!
+
+## Enzyme Notes
 $ git clone  
 $ yarn  
 $ yarn test - uses built in testing suite
@@ -21,7 +23,7 @@ import WhateverComponent from '../WhateverComponent'
 ```
 
 ### configuration
-`Enzyme.configure({ adapter: new Adapter()})`
+`Enzyme.configure({ adapter: new Adapter() })`
 
 ### Arrange
 set up a situation, shallow rendering a component
@@ -32,3 +34,27 @@ expectation of the behavior
 
 ### Syntax for assertions
 `expect(<actualQueried>),<matcher>(<expected>)`
+
+
+
+## Cat Tinder Read (Index and Show)
+
+- Refactor some of routes
+  - Static routes - they just display the component
+  - Dynamic routes - which will change based on input (array of cats)
+
+### Index
+- Refactored the route to pass state of cats to index
+- Mapped over the array
+  - Unique key - cat's id
+  - Displayed the cat's name
+- Enzyme test to ensure the component mounts
+  - Realized we need to conditionally render the array to only map once the data makes it to the component
+
+### Show
+- Refactored the route to pass a single cat to show
+  - get the id from params
+  - find to get just one cat object from the array
+  - passed the one cat object
+- Displayed all the cat info
+- Create links from cat index to cat show using NavLink from react-router-dom
