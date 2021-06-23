@@ -1,42 +1,34 @@
-# Getting set up
-$ git clone
-<br>
-$ yarn
-<br>
+# Enzyme Notes
+$ git clone  
+$ yarn  
 $ yarn test - uses built in testing suite
 
 `$ yarn add -D enzyme react-test-renderer enzyme-adapter-react-16`
 
-# Test Folder Structure
-at the same level of the items to be tested creat a new folder called 
-`__tests__`
- 
- tests should have the names of the specific item being rendered
- ex. Header.test.js
-     Footer.test.js
-     CatIndex.test.js
+### Test File Structure
+Tests should have the names of the specific item being rendered  
+- Header.test.js
+- Footer.test.js
+- CatIndex.test.js
 
-# Test File Structure
+
 ### Imports
+```
 import React from 'react'
-<br>
 import Enzyme, { shallow } from 'enzyme'
-<br>
 import Adapter from 'enzyme-adapter-react-16'
-<br>
 import WhateverComponent from '../WhateverComponent'
+```
 
 ### configuration
 `Enzyme.configure({ adapter: new Adapter()})`
 
-# Arrange 
-set up a situation, shallow redering a component
-# Act 
+### Arrange
+set up a situation, shallow rendering a component
+### Act
 User Interaction
-# Assert
-expection of the behavior
-
+### Assert
+expectation of the behavior
 
 ### Syntax for assertions
 `expect(<actualQueried>),<matcher>(<expected>)`
-

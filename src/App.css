@@ -1,11 +1,48 @@
-
-.cat-logo {
-  width: 200px;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 
-/* ---FOOTER--- */
+/* ---HEADER--- */
+nav.navbar.navbar-light.bg-faded {
+  padding: 0 !important;
+  font-size: 20px;
+}
+.cat-logo {
+  width: 150px;
+}
+.header-main {
+  background-color: #EBE0D0;
+  padding-bottom: 10px;
+}
+a.mr-auto.navbar-brand {
+  padding: 0 !important;
+}
+button.mr-2.navbar-toggler {
+  margin-top: 40px;
+  margin-right: 40px;
+  background-color: #FFFEF1;
+}
+ul.navbar-nav {
+  padding-right: 30px;
+  text-align: right;
+}
 
+
+/* ---HOME--- */
+.home-body {
+  text-align: center;
+  margin: 50px;
+  height: 100vh;
+}
+.cat-friend {
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+/* ---FOOTER--- */
 footer {
   font-size: 20px;
   position: fixed;
@@ -13,17 +50,14 @@ footer {
   width: 100%;
   background-color: #FFFEF1
 }
-
 ul.nav {
   justify-content: space-around;
 }
-
 a {
   color: #FF0080 !important;
   text-decoration: none !important;
 }
-
-a:hover{
+a:hover {
   cursor: pointer !important;
   color: #FF0080 !important;
   text-decoration: underline !important;
@@ -35,7 +69,6 @@ a:hover{
   text-align: center;
   margin: 5rem;
 }
-
 .notfound-cat {
   width: 400px;
 }
