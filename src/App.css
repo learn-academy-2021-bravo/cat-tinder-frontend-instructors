@@ -2,6 +2,16 @@
   margin: 0;
   padding: 0;
 }
+.main-body {
+  text-align: center;
+  margin: 3rem;
+  height: 100vh;
+}
+.cat-friend {
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
 
 
 /* ---HEADER--- */
@@ -11,6 +21,7 @@ nav.navbar.navbar-light.bg-faded {
 }
 .cat-logo {
   width: 150px;
+  margin-left: 20px;
 }
 .header-main {
   background-color: #EBE0D0;
@@ -29,18 +40,6 @@ ul.navbar-nav {
   text-align: right;
 }
 
-
-/* ---HOME--- */
-.home-body {
-  text-align: center;
-  margin: 50px;
-  height: 100vh;
-}
-.cat-friend {
-  width: 200px;
-  border: 1px solid black;
-  border-radius: 10px;
-}
 
 /* ---FOOTER--- */
 footer {
@@ -61,14 +60,4 @@ a:hover {
   cursor: pointer !important;
   color: #FF0080 !important;
   text-decoration: underline !important;
-}
-
-
-/* ---NOT FOUND--- */
-.notfound-body {
-  text-align: center;
-  margin: 5rem;
-}
-.notfound-cat {
-  width: 400px;
 }

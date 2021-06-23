@@ -8,9 +8,7 @@ Enzyme.configure({ adapter: new Adapter()})
 describe("When NotFound renders", () => {
   it("displays Oops heading", () => {
     const notFound = shallow(<NotFound />)
-
     const oopsHeading = notFound.find("h3")
-
     expect(oopsHeading.text()).toEqual("Ooops, no cats here!")
-  });
-});
+  })
+})
