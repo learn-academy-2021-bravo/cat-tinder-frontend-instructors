@@ -58,3 +58,8 @@ expectation of the behavior
   - passed the one cat object
 - Displayed all the cat info
 - Create links from cat index to cat show using NavLink from react-router-dom
+- Enzyme test to ensure the component mounts
+  - Realized we need to conditionally render the cat object to only display once the data makes it to the component
+
+
+## Cat Tinder Create
