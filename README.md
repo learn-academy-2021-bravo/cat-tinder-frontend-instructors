@@ -63,3 +63,6 @@ expectation of the behavior
 
 
 ## Cat Tinder Create
+- Using Reactstrap to create the form and formgroups
+- Adding a state object to hold the values
+- Adding a handleChange method to take the values from the form
