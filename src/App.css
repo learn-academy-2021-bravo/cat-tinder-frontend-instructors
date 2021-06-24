@@ -5,7 +5,7 @@
 .main-body {
   text-align: center;
   margin: 3rem;
-  height: 100vh;
+  height: 110vh;
 }
 .cat-friend {
   width: 200px;
@@ -41,10 +41,35 @@ ul.navbar-nav {
 }
 
 /* ---INDEX--- */
-.index-body {
-
+.index-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.card.card-body {
+  width: 300px;
+  background-color: #FFFEF1;
+  margin: 20px;
+}
+.btn.btn-secondary {
+  background-color: #FF0080;
+  font-weight: bolder;
+}
+.btn.btn-secondary:hover {
+  color: #FF0080;
+  background-color: white;
 }
 
+/* ---SHOW--- */
+.card-show.card.card-body {
+  margin: 0 auto;
+}
+
+/* ---NEW--- */
+form {
+  width: 500px;
+  margin: 0 auto;
+}
 
 /* ---FOOTER--- */
 footer {

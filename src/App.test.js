@@ -26,11 +26,9 @@ describe("When App renders", () => {
 
     //Act
     const renderedHomeRoute = renderedApp.find('[path="/"]')
-    console.log("RENDERED HOME ROUTE IS RIGHT HERE", renderedHomeRoute.debug())
-    console.log("RENDERED HOME ROUTE PROPS IS RIGHT HERE", renderedHomeRoute.props())
+    // console.log("RENDERED HOME ROUTE IS RIGHT HERE", renderedHomeRoute.debug())
     //Assert
     expect(renderedHomeRoute.length).toEqual(1)
-    // does this exist yes/no == 1 / 0
     expect(renderedHomeRoute.props().component).toEqual(Home)
   })
 })

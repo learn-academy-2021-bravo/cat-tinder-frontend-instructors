@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
+import { Card, CardTitle, CardText } from 'reactstrap'
 
 class CatShow extends Component {
   render() {
     let { cat } = this.props
     return (
-      <>
-        <h2>This is the Show Page</h2>
+      <div className="main-body">
         { cat &&
-          <>
-            <p>{ cat.name }</p>
-            <p>{ cat.age }</p>
-            <p>{ cat.enjoys }</p>
-          </>
+          <Card body className="card-show">
+            <CardTitle tag="h5">Hi, my name is { cat.name }</CardTitle>
+            <CardText>I am { cat.age }</CardText>
+            <CardText>I enjoy { cat.enjoys }.</CardText>
+          </Card>
         }
-      </>
+      </div>
     )
   }
 }
