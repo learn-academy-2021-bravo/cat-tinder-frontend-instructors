@@ -63,7 +63,7 @@ class CatNew extends Component {
           </FormGroup>
           <br />
           <Button name="sumbit" onClick={ this.handleSubmit }>
-            Submit
+            Add New Cat
           </Button>
         </Form>
         { this.state.submitted && <Redirect to="/catindex" /> }
