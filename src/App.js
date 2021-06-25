@@ -33,7 +33,7 @@ class App extends Component {
     fetch("http://localhost:3000/cats")
     .then(response => response.json())
     .then(catsArray => this.setState({ cats: catsArray }))
-    .catch(errors => console.log("cat read fetch errors:", errors))
+    .catch(errors => console.log("Cat read fetch errors:", errors))
   }
 
   createCat = (newcat) => {
@@ -52,12 +52,38 @@ class App extends Component {
       }
     })
     .then(payload => this.readCat())
-    .catch(errors => console.log("cat create fetch errors:", errors))
+    .catch(errors => console.log("Cat create fetch errors:", errors))
   }
 
   updateCat = (editcat, id) => {
-    console.log("cat:", editcat)
-    console.log("id:", id)
+    fetch(`http://localhost:3000/cats/${id}`, {
+      body: JSON.stringify(editcat),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => {
+      if(response.status === 422){
+        alert("Please check your submission.")
+      } else {
+        return response.json()
+      }
+    })
+    .then(payload => this.readCat())
+    .catch(errors => console.log("Cat update fetch errors:", errors))
+  }
+
+  deleteCat = (id) => {
+    fetch(`http://localhost:3000/cats/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(payload => this.readCat())
+    .catch(errors => console.log("Cat delete fetch errors:", errors))
   }
 
   render() {
@@ -70,7 +96,7 @@ class App extends Component {
           <Route path="/catshow/:id" render={ (props) => {
             let id = props.match.params.id
             let cat = this.state.cats.find(cat => cat.id === +id)
-            return <CatShow cat={ cat } />
+            return <CatShow cat={ cat } deleteCat={ this.deleteCat } />
           }} />
           <Route path="/catnew" render={ (props) => <CatNew createCat={ this.createCat } /> } />
           <Route path={"/catedit/:id"} render={ (props) => {
