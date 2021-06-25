@@ -17,18 +17,42 @@ import {
   Switch
 } from 'react-router-dom'
 
-import mockCats from './mockCats.js'
-
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      cats: mockCats
+      cats: []
     }
   }
 
+  componentDidMount(){
+    this.readCat()
+  }
+
+  readCat = () => {
+    fetch("http://localhost:3000/cats")
+    .then(response => response.json())
+    .then(catsArray => this.setState({ cats: catsArray }))
+    .catch(errors => console.log("cat read fetch errors:", errors))
+  }
+
   createCat = (newcat) => {
-    console.log("cat:", newcat)
+    fetch("http://localhost:3000/cats", {
+      body: JSON.stringify(newcat),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => {
+      if(response.status === 422){
+        alert("Please check your submission.")
+      } else {
+        return response.json()
+      }
+    })
+    .then(payload => this.readCat())
+    .catch(errors => console.log("cat create fetch errors:", errors))
   }
 
   updateCat = (editcat, id) => {
