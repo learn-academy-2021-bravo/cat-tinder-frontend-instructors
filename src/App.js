@@ -44,13 +44,7 @@ class App extends Component {
       },
       method: "POST"
     })
-    .then(response => {
-      if(response.status === 422){
-        alert("Please check your submission.")
-      } else {
-        return response.json()
-      }
-    })
+    .then(response => response.json())
     .then(payload => this.readCat())
     .catch(errors => console.log("Cat create fetch errors:", errors))
   }
@@ -63,13 +57,7 @@ class App extends Component {
       },
       method: "PATCH"
     })
-    .then(response => {
-      if(response.status === 422){
-        alert("Please check your submission.")
-      } else {
-        return response.json()
-      }
-    })
+    .then(response => response.json())
     .then(payload => this.readCat())
     .catch(errors => console.log("Cat update fetch errors:", errors))
   }
