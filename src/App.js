@@ -17,23 +17,61 @@ import {
   Switch
 } from 'react-router-dom'
 
-import mockCats from './mockCats.js'
-
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      cats: mockCats
+      cats: []
     }
   }
 
+  componentDidMount(){
+    this.readCat()
+  }
+
+  readCat = () => {
+    fetch("http://localhost:3000/cats")
+    .then(response => response.json())
+    .then(catsArray => this.setState({ cats: catsArray }))
+    .catch(errors => console.log("Cat read fetch errors:", errors))
+  }
+
   createCat = (newcat) => {
-    console.log("cat:", newcat)
+    fetch("http://localhost:3000/cats", {
+      body: JSON.stringify(newcat),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => response.json())
+    .then(payload => this.readCat())
+    .catch(errors => console.log("Cat create fetch errors:", errors))
   }
 
   updateCat = (editcat, id) => {
-    console.log("cat:", editcat)
-    console.log("id:", id)
+    fetch(`http://localhost:3000/cats/${id}`, {
+      body: JSON.stringify(editcat),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => response.json())
+    .then(payload => this.readCat())
+    .catch(errors => console.log("Cat update fetch errors:", errors))
+  }
+
+  deleteCat = (id) => {
+    fetch(`http://localhost:3000/cats/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(payload => this.readCat())
+    .catch(errors => console.log("Cat delete fetch errors:", errors))
   }
 
   render() {
@@ -46,7 +84,7 @@ class App extends Component {
           <Route path="/catshow/:id" render={ (props) => {
             let id = props.match.params.id
             let cat = this.state.cats.find(cat => cat.id === +id)
-            return <CatShow cat={ cat } />
+            return <CatShow cat={ cat } deleteCat={ this.deleteCat } />
           }} />
           <Route path="/catnew" render={ (props) => <CatNew createCat={ this.createCat } /> } />
           <Route path={"/catedit/:id"} render={ (props) => {
