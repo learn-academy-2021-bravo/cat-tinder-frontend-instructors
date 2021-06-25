@@ -15,6 +15,10 @@ class CatShow extends Component {
               <NavLink to={`/catedit/${cat.id}`}>
                 <Button>Edit Cat Profile</Button>
               </NavLink>
+              <br />
+              <NavLink to="/catindex">
+                <Button>Delete Cat Profile</Button>
+              </NavLink>
             </Card>
         }
       </div>
